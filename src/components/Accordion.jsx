@@ -11,9 +11,10 @@ function Accordion({data}) {
                 curOpen={curOpen}
                 onOpen={setCurOpen}
                 title={el.title}
-                text={el.text}
                 numb={index}
-            />
+            >
+            {el.text}
+            </AccordionItem>
         ))}
     </div>
 }

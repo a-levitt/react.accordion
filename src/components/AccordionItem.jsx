@@ -1,4 +1,4 @@
-function AccordionItem({numb, title, text, curOpen, onOpen}) {
+function AccordionItem({numb, title, curOpen, onOpen, children}) {
     const isOpen = numb === curOpen;
 
     function handleToggle() {
@@ -12,7 +12,7 @@ function AccordionItem({numb, title, text, curOpen, onOpen}) {
             <p className="number">{numb < 9 ? `0${numb+1}` : `${numb+1}`}</p>
             <p className="title">{title}</p>
             <p className="icon">{isOpen ? "-" : "+"}</p>
-            {isOpen && <div className="content-box">{text}</div>}
+            {isOpen && <div className="content-box">{children}</div>}
         </div>
     )
 }
