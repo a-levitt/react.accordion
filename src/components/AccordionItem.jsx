@@ -1,12 +1,14 @@
-import {useState} from "react";
+function AccordionItem({numb, title, text, curOpen, onOpen}) {
+    const isOpen = numb === curOpen;
 
-function AccordionItem({numb, title, text}) {
-    const [isOpen, setIsOpen] = useState(false);
+    function handleToggle() {
+        onOpen(numb);
+    }
 
     return (
         <div
             className={`item ${isOpen && "open"}`}
-            onClick={() => setIsOpen(!isOpen)}>
+            onClick={handleToggle}>
             <p className="number">{numb < 9 ? `0${numb+1}` : `${numb+1}`}</p>
             <p className="title">{title}</p>
             <p className="icon">{isOpen ? "-" : "+"}</p>
